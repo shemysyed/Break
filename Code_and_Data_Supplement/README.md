@@ -1,4 +1,4 @@
-# PULSE - AAAI-27 Code and Data Supplement
+# BTF Code and Data Supplement
 
 Anonymous code supplement for:
 
