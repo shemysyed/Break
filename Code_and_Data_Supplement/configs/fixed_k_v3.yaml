@@ -1,0 +1,26 @@
+analysis: preliminary_fixed_cardinality
+identity_subspace_dim: 48
+pair_count: 50000
+pair_score_direction: raw_cosine_no_inversion
+teacher_map_at_r: 0.330221
+models:
+- k: 64
+  best_epoch: 8
+  alpha: 0.245989
+  beta: 0.19999
+  checkpoint: checkpoints/fixed_k/k64.pt
+- k: 77
+  best_epoch: 10
+  alpha: 0.3
+  beta: 0.25
+  checkpoint: checkpoints/fixed_k/k77.pt
+- k: 96
+  best_epoch: 10
+  alpha: 0.3
+  beta: 0.25
+  checkpoint: checkpoints/fixed_k/k96.pt
+- k: 128
+  best_epoch: 9
+  alpha: 0.272994608
+  beta: 0.224995002
+  checkpoint: checkpoints/fixed_k/k128.pt

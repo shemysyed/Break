@@ -1,0 +1,12 @@
+{
+  "root": "<COVIDX_ROOT>",
+  "save_dir": "data_splits/covidx",
+  "seed": 42,
+  "split_logic": "patient-level stratified by Source + majority Label + image-count bin",
+  "train_pool": "train_header.csv only",
+  "official_validation": "val_header.csv, external utility only",
+  "official_test": "test_header.csv, external utility only",
+  "mia_member": "retain_train",
+  "mia_nonmember": "audit_nonmember_trainlike",
+  "mia_target": "forget_train"
+}

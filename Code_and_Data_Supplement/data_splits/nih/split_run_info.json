@@ -1,0 +1,33 @@
+{
+  "dataset": "NIH ChestX-ray14",
+  "csv_path": "<NIH_METADATA_CSV>/Data_Entry_2017.csv",
+  "image_dir": "<NIH_IMAGE_ROOT>",
+  "save_dir": "data_splits/nih",
+  "split_ratios": {
+    "retain_train": 0.7,
+    "forget_train": 0.1,
+    "audit_nonmember_trainlike": 0.1,
+    "internal_validation": 0.05,
+    "test": 0.05
+  },
+  "split_unit": "Patient ID",
+  "patient_overlap": "zero by construction",
+  "stratification": "primary_label + image_count_bin + gender + view, with rare-stratum fallback",
+  "seed": 42,
+  "disease_labels": [
+    "Atelectasis",
+    "Cardiomegaly",
+    "Effusion",
+    "Infiltration",
+    "Mass",
+    "Nodule",
+    "Pneumonia",
+    "Pneumothorax",
+    "Consolidation",
+    "Edema",
+    "Emphysema",
+    "Fibrosis",
+    "Pleural_Thickening",
+    "Hernia"
+  ]
+}

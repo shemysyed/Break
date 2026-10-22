@@ -1,0 +1,142 @@
+project:
+  name: pulse_nih
+  output_dir: outputs/nih
+  cache_dir: cache/nih
+data:
+  image_root: /path/to/NIH_ChestXray14/images-224
+  split_dir: data_splits/nih
+  split_files:
+    retain: retain_train.csv
+    forget: forget_train.csv
+    audit: audit_nonmember_trainlike.csv
+    validation: internal_validation.csv
+    test: test.csv
+  image_column: Image Index
+  patient_column: Patient ID
+  path_column: ImagePath
+  labels:
+  - Atelectasis
+  - Cardiomegaly
+  - Effusion
+  - Infiltration
+  - Mass
+  - Nodule
+  - Pneumonia
+  - Pneumothorax
+  - Consolidation
+  - Edema
+  - Emphysema
+  - Fibrosis
+  - Pleural_Thickening
+  - Hernia
+  expected_counts:
+    retain:
+      images: 78502
+      patients: 21579
+    forget:
+      images: 11274
+      patients: 3098
+    audit:
+      images: 10926
+      patients: 3033
+    validation:
+      images: 5943
+      patients: 1567
+    test:
+      images: 5475
+      patients: 1528
+model:
+  backbone: microsoft/rad-dino-maira-2
+  input_size: 224
+  embedding_dim: 256
+  bottleneck_dim: 32
+  identity_subspace_dim: 96
+  trainable_last_blocks: 2
+  local_files_only: false
+assets:
+  teacher_checkpoint: checkpoints/teacher_nih.pt
+  patient_mapping: cache/nih/patient_to_index.json
+  anchors: cache/nih/forget_anchors.npy
+  identity_basis: cache/nih/identity_basis_q96.npy
+  token_ranking: cache/nih/token_ranking_top128.npy
+anchor:
+  reference_pool_size: 20000
+  neighbors: 16
+  seed: 404
+token_scoring:
+  lambda_token: 0.75
+  replacement: mean
+  ranking_size: 128
+  batch_size: 4
+  seed: 505
+training:
+  seed: 808
+  epochs: 5
+  steps_per_epoch: 500
+  batch_size: 6
+  pair_batch_size: 6
+  mixed_precision: true
+  gradient_clip: 1.0
+  weight_decay: 0.0001
+  student_lr: 1.0e-06
+  attacker_lr: 0.00015
+  attacker_updates_per_student: 2
+  token_cardinalities:
+  - 77
+  - 96
+  - 128
+  token_probabilities:
+  - 0.2
+  - 0.35
+  - 0.45
+  pair_margin: 0.02
+  variance_target: 0.045
+  variance_weight: 0.1
+  schedules:
+    alpha:
+    - 0.476
+    - 0.52
+    beta:
+    - 0.6
+    - 0.64
+    subspace:
+    - 2.7
+    - 3.4
+    pair:
+    - 3.3
+    - 3.5
+    patient:
+    - 1.2
+    - 1.45
+    anchor:
+    - 0.45
+    - 0.35
+    adversarial:
+    - 2.6
+    - 3.2
+    transfer:
+    - 1.1
+    - 1.2
+  utility_weights:
+    retain_bce: 0.5
+    retain_kd: 4.0
+    retain_embedding: 0.6
+    forget_clean_bce: 1.0
+    forget_clean_kd: 6.0
+    forget_masked_bce: 0.5
+    forget_masked_kd: 3.0
+    pair_clean_kd: 0.7
+    pair_masked_kd: 0.3
+inference:
+  alpha: 0.7
+  beta: 0.631997
+  noise_scale: 0.0
+evaluation:
+  seed: 1212
+  pair_seed: 1229
+  pair_count: 50000
+  retrieval_chunk_size: 256
+  pair_score_direction: raw_cosine_no_inversion
+  bootstrap_repetitions: 1000
+  bootstrap_seed: 2027
+  teacher_map_at_r: 0.330221

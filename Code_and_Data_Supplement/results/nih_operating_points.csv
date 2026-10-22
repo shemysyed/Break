@@ -1,0 +1,4 @@
+setting,retain_auc,forget_auc,pair_reid_auc,cmc_rank1,map_at_r,drop_r,learned_pair_attacker_auc
+Utility-preserving setting,0.899539,0.897820,0.665975,0.444316,0.174579,0.471326,0.770026
+Intermediate setting,0.891622,0.890113,0.582188,0.362786,0.129473,0.607920,0.705951
+Selected PULSE,0.859515,0.854946,0.461389,0.207291,0.058590,0.822573,0.616246

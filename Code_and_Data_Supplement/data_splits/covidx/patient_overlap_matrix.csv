@@ -1,0 +1,16 @@
+split_a,split_b,patients_a,patients_b,overlap_patients
+retain_train,forget_train,24870,3529,0
+retain_train,audit_nonmember_trainlike,24870,3529,0
+retain_train,internal_validation,24870,3529,0
+retain_train,official_validation,24870,5163,0
+retain_train,official_test,24870,4722,0
+forget_train,audit_nonmember_trainlike,3529,3529,0
+forget_train,internal_validation,3529,3529,0
+forget_train,official_validation,3529,5163,0
+forget_train,official_test,3529,4722,0
+audit_nonmember_trainlike,internal_validation,3529,3529,0
+audit_nonmember_trainlike,official_validation,3529,5163,0
+audit_nonmember_trainlike,official_test,3529,4722,0
+internal_validation,official_validation,3529,5163,0
+internal_validation,official_test,3529,4722,0
+official_validation,official_test,5163,4722,0

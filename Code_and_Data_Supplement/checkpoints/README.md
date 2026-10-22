@@ -1,0 +1,1 @@
+See `docs/CHECKPOINTS.md`. Checkpoint binaries are intentionally excluded from version control and the lightweight ZIP. Add them here only when permitted by the submission upload limit and model license.

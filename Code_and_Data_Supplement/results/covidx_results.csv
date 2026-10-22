@@ -1,0 +1,4 @@
+method,retain_auc,forget_auc,pair_reid_auc,cmc_rank1,map_at_r,drop_r
+Teacher,0.995,0.995,0.829,0.355,0.118,0.000
+Standard Retrain,0.998,0.991,0.823,0.342,0.113,0.046
+PULSE,0.964,0.965,0.482,0.220,0.021,0.819

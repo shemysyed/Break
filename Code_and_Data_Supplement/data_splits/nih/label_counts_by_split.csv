@@ -1,0 +1,6 @@
+split,Atelectasis,Cardiomegaly,Effusion,Infiltration,Mass,Nodule,Pneumonia,Pneumothorax,Consolidation,Edema,Emphysema,Fibrosis,Pleural_Thickening,Hernia,No Finding
+retain_train,7957,1927,9211,13745,3942,4371,925,3690,3197,1586,1750,1134,2315,148,42541
+forget_train,1165,308,1369,2074,619,667,178,492,453,237,238,213,392,39,5992
+audit_nonmember_trainlike,1187,250,1334,2001,559,639,111,546,481,249,235,151,315,30,5845
+internal_validation,663,156,777,1061,386,351,63,307,285,119,174,84,182,5,3079
+test,563,131,616,989,240,295,76,263,251,112,119,104,181,5,2955
