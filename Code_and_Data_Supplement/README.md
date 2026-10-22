@@ -2,7 +2,7 @@
 
 Anonymous code supplement for:
 
-**PULSE: Patient-Level Unlearning via Localized Selective Erasure for Privacy-Preserving Chest X-ray Foundation Models**
+**Breaking the Fingerprint: Mitigating Patient Re-Identification via Localized Token-Guided Privacy Adaptation in Chest X-Ray Foundation Models**
 
 This package provides a clean, command-line implementation of the method, data protocol, training objectives, evaluation metrics, and configurations described in the paper. It is organized from the authors' experimental notebooks, with exploratory outputs, personal filesystem paths, and failed runs removed.
 
